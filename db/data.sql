@@ -57,10 +57,10 @@ INSERT INTO slides (id, category, title, image, created_at, updated_at) VALUES
 
 
 INSERT INTO users (id, name, description, avatar, background, birthday, gender, created_at, updated_at, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, provider, uid) VALUES
-(1, 'Jean Carlos Farias', NULL, NULL, NULL, NULL, NULL, '2015-07-31 18:36:37', '2015-08-09 21:27:04', 'jean_c12@hotmail.com', '$2a$10$d6ivLAFkf2n7acQvxe8fE.R12/3XAfXBksJCZ4xT92xjWmIzojVba', NULL, NULL, '2015-08-04 17:31:58', 26, '2015-08-09 21:27:04', '2015-08-09 15:42:27', '127.0.0.1', '127.0.0.1', NULL, NULL),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:23:31', '2015-07-31 19:23:31', 'editor@gamernow.com.br', '$2a$10$t2X6PacfiWoDMT/uhUJDLeZJSlpbaQGBrX1eo7ntGNfo57tArN1ue', NULL, NULL, NULL, 1, '2015-07-31 19:23:31', '2015-07-31 19:23:31', '127.0.0.1', '127.0.0.1', NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:24:45', '2015-07-31 19:24:45', 'author@gamernow.com.br', '$2a$10$ifHD6eDlYoEqMzy3Z/kDB.QrJtu4T0yaCdkABWwuv6v/pivDQAY9.', NULL, NULL, NULL, 1, '2015-07-31 19:24:45', '2015-07-31 19:24:45', '127.0.0.1', '127.0.0.1', NULL, NULL),
-(4, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:27:18', '2015-07-31 19:27:18', 'user@gamernow.com.br', '$2a$10$noA/QEnnknlAljZGpjr0fulyoOnF3X60vkG9B9/rXMs8aSwvv3Iae', NULL, NULL, NULL, 1, '2015-07-31 19:27:18', '2015-07-31 19:27:18', '127.0.0.1', '127.0.0.1', NULL, NULL);
+(1, 'Jean Carlos Farias', NULL, NULL, NULL, NULL, NULL, '2015-07-31 18:36:37', '2015-08-09 21:27:04', 'jean_c12@hotmail.com', 'bcrypt', NULL, NULL, '2015-08-04 17:31:58', 26, '2015-08-09 21:27:04', '2015-08-09 15:42:27', '127.0.0.1', '127.0.0.1', NULL, NULL),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:23:31', '2015-07-31 19:23:31', 'editor@gamernow.com.br', 'bcrypt', NULL, NULL, NULL, 1, '2015-07-31 19:23:31', '2015-07-31 19:23:31', '127.0.0.1', '127.0.0.1', NULL, NULL),
+(3, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:24:45', '2015-07-31 19:24:45', 'author@gamernow.com.br', 'bcrypt.', NULL, NULL, NULL, 1, '2015-07-31 19:24:45', '2015-07-31 19:24:45', '127.0.0.1', '127.0.0.1', NULL, NULL),
+(4, NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-31 19:27:18', '2015-07-31 19:27:18', 'user@gamernow.com.br', 'bcrypt', NULL, NULL, NULL, 1, '2015-07-31 19:27:18', '2015-07-31 19:27:18', '127.0.0.1', '127.0.0.1', NULL, NULL);
 
 
 INSERT INTO users_roles (user_id, role_id) VALUES
