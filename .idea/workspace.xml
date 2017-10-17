@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11c7c0ed-d46a-43ca-9d73-55bac6426dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__GamerNow.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__GamerNow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__GamerNow.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__GamerNow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__GamerNow.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__GamerNow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__GamerNow.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__GamerNow.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/data.sql" afterPath="$PROJECT_DIR$/db/data.sql" />
     </list>
     <ignored path="GamerNow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -543,14 +535,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1437946782804</updated>
-      <workItem from="1508236855877" duration="291000" />
-    </task>
-    <task id="LOCAL-00109" summary="omniauth fix">
-      <created>1439746146002</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1439746146002</updated>
+      <workItem from="1508236855877" duration="303000" />
     </task>
     <task id="LOCAL-00110" summary="omniauth fix">
       <created>1439746519097</created>
@@ -888,11 +873,18 @@
       <option name="project" value="LOCAL" />
       <updated>1443981410827</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="videos">
+      <created>1508237156207</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1508237156208</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291000" />
+    <option name="totallyTimeSpent" value="303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
