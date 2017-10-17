@@ -1,0 +1,37 @@
+<div class="panel-heading">
+  <h4>Listando Comentarios de Videos</h4>
+</div>
+
+<div class="panel-body">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>User</th>
+        <th>Video</th>
+        <th>Content</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @video_comments.each do |video_comment| %>
+          <tr>
+            <td><%= video_comment.user %></td>
+            <td><%= video_comment.video %></td>
+            <td><%= video_comment.content %></td>
+            <td><%= link_to 'Show', [:admin, video_comment], class: 'fa btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Edit', edit_admin_video_comment_path(video_comment), class: 'fa btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Destroy', [:admin, video_comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa btn btn-xs btn-danger' %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel-footer">
+  <%= will_paginate @video_comments, renderer: BootstrapPagination::Rails %>
+</div>

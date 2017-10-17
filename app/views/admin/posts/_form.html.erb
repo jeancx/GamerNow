@@ -1,0 +1,104 @@
+<%= form_for([:admin, @post]) do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+
+      <div class="col-md-9">
+
+        <div class="form-group">
+          <%= f.label :title, "Titulo: ", class: 'control-label col-md-2', style: "padding: 0" %>
+          <div class="controls col-md-10" style="padding: 0">
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-group" style="margin-top: 30px">
+          <%= f.label :date, "Publicar em:", class: 'control-label col-md-2', style: "padding: 0" %>
+          <div class="col-md-10" style="padding: 0">
+            <%= f.datetime_select :date, class: 'form-control' %> GMT -300
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group" style="margin-top: 10px">
+          <%= f.text_area :content, class: 'form-control mceEditor', id: "editor" %>
+        </div>
+
+      </div>
+
+      <div class="col-md-3">
+        <% if (@post.image.present?) %>
+            <img src="<%= @post.image.file.thumb %>" id="showIMG" class="img-responsive img-thumbnail">
+        <% else %>
+            <img src="/images/assets/1280x720.png" id="showIMG" class="img-responsive img-thumbnail">
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :image, "Image de Destaque (L.1280 x A.720): ", class: 'control-label inputIMG' %>
+          <div class="controls">
+            <%= f.file_field :image, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :category_id, "Categoria", class: 'control-label' %>
+          <div class="controls">
+            <%= f.collection_select(:category_id, Category.all, :id, :title, {:label => 'Categoria'}, :class => 'form-control') %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :platform_ids, "Plataformas", class: 'control-label' %>
+          <div class="controls">
+            <%= f.select :platform_ids, Platform.all.collect { |x| [x.shortname, x.id] }, {}, :class => 'form_multiselect', :multiple => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :games, "Games", class: 'control-label' %>
+          <div class="controls component-mt-select"
+               data-mt-max-tags="50"
+               data-mt-request-url="/admin/api/games"
+               data-mt-request-method="GET"
+               data-mt-default-values='{
+                 <% @post.games.each do |g| %><%= '"'+g.id.to_s+'":"'+g.title+'"' %>
+                     <% if (g != @post.games.last) %>,
+                     <% end %>
+                 <% end %>}'
+               data-mt-tag-input-name="game_ids">
+            <input type="text" class="form-control" data-mt-filter-control/>
+          </div>
+        </div>
+
+        <% if current_user.has_role? :admin or :moderator %>
+            <div class="form-group">
+              <%= f.label :status, "Status", class: 'control-label' %>
+              <div class="controls">
+                <%= f.select :status, options_for_select([['Rascunho', 'draft'], ['Revisar', 'review'], ['Rejeitado', 'rejected'], ['Publicado', 'published']], @post.status), {}, class: 'form-control' %>
+              </div>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.submit "Rascunho", class: "btn btn-warning pull-left" %>
+          <%= f.submit "Publicar", class: "btn btn-primary pull-right" %>
+        </div>
+
+      </div>
+
+    </div>
+
+<% end %>

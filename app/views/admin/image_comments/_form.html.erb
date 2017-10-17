@@ -1,0 +1,40 @@
+<%= form_for([:admin, @image_comment], html: { class: 'form-horizontal image_comment' }) do |f| %>
+  <% if @image_comment.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@image_comment.errors.count, "error") %> prohibited this image_comment from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @image_comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :user_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :user_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :image_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

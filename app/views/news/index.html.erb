@@ -1,0 +1,80 @@
+<%# encoding: utf-8 %>
+<header id="header">
+  <%= render partial: 'partials/menu' %>
+  <%= render partial: 'partials/slideshow' %>
+</header>
+
+<div class="main">
+  <div class="boxed">
+
+    <div class="page-content">
+
+      <div class="row clearfix">
+        <div class="grid_9 alpha posts">
+
+          <div class="title color6"><h4>Notícias</h4></div>
+
+
+          <% @posts.each do |post| %>
+
+              <% if post.image.present? %>
+
+                  <div class="post_day mbf clearfix">
+
+                    <div class="grid_4 alpha relative">
+                      <a class="hover-shadow" href="<%= post.link %>"><img src="<%= post.image.file.thumb %>" alt="<%= post.title %>"></a>
+                    </div>
+
+                    <div class="grid_8 omega">
+                      <div class="post_day_content">
+                        <h3><a href="<%= post.link %>"><%= post.title %></a></h3>
+
+                        <div class="meta mb"> <%= post.date %> / <a href="<%= post.link %>">0 comentários</a></div>
+                        <p><%= sanitize(post.content, :tags=>[]).truncate(260, :separator => " ").html_safe %>
+                          <a href="<%= post.link %>"> Leia Mais...</a></p>
+                      </div>
+                    </div>
+
+                  </div>
+              <% end %>
+
+          <% end %>
+
+          <div class="text-center">
+
+            <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+
+          </div>
+
+
+          <%= render partial: 'related_posts' %>
+
+          <%= render partial: 'partials/adverts' %>
+
+        </div>
+        <!-- end grid9 -->
+
+        <div class="grid_3 omega sidebar sidebar_a">
+
+          <%= render partial: 'widgets/most_waited' %>
+
+          <%= render partial: 'widgets/polls' %>
+
+          <%= render partial: 'widgets/last_comments' %>
+
+          <%= render partial: 'widgets/tags' %>
+
+        </div>
+        <!-- /grid3 sidebar A -->
+      </div>
+      <!-- /row -->
+
+    </div>
+
+    <footer id="footer">
+      <%= render partial: 'partials/footer_a' %>
+      <%= render partial: 'partials/footer_b' %>
+    </footer>
+
+  </div>
+</div>

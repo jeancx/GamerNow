@@ -1,0 +1,33 @@
+<div class="panel-heading">
+  <h4>Mostrando Video</h4>
+</div>
+
+<div class="panel-body">
+
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Provider:</strong></dt>
+    <dd><%= @video.provider %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Title:</strong></dt>
+    <dd><%= @video.title %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Vid:</strong></dt>
+    <dd><%= @video.vid %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Thumb:</strong></dt>
+    <dd><img src="http://img.youtube.com/vi/<%= @video.vid %>/0.jpg"></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_video_path(@video), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_videos_path, class: 'btn btn-default' %>
+</div>

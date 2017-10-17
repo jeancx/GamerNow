@@ -1,0 +1,1 @@
+json.extract! @option, :type, :name, :value, :created_at, :updated_at

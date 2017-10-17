@@ -1,0 +1,22 @@
+<% if @post.present? %>
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="<%= @post.title %>">
+<meta itemprop="description" content="<%= @post.content.first(200) %>">
+<meta itemprop="image" content="<%= @post.image.file %>">
+
+<!-- Social: Facebook / Open Graph -->
+<meta property="fb:admins" content="675003185977066">
+<meta property="og:url" content="http://gamernow.com.br<%= @post.link %>">
+<meta property="og:type" content="article">
+<meta property="og:title" content="<%= @post.title %>">
+<meta property="og:image" content="<%= @post.image.file %>">
+<meta property="og:description" content="<%= @post.content.first(200) %>">
+<meta property="og:site_name" content="GamerNow">
+<meta property="article:author" content="<%= @post.user.name %>">
+<meta property="article:publisher" content="https://www.facebook.com/gamernow.official">
+<meta property="article:published_time" content="<%= @post.date %>" />
+<meta property="article:modified_time" content="<%= @post.updated_at %>" />
+<meta property="article:section" content="<%= @post.category.title %>" />
+
+<% end %>

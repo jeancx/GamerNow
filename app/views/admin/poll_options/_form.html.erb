@@ -1,0 +1,34 @@
+<%= form_for([:admin, @poll_option], html: { class: 'form-horizontal poll_option' }) do |f| %>
+  <% if @poll_option.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@poll_option.errors.count, "error") %> prohibited this poll_option from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @poll_option.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :poll_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :poll_id , class: 'form-control', value: params[:id] %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

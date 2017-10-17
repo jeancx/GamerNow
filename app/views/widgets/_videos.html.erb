@@ -1,0 +1,20 @@
+<%# encoding: utf-8 %>
+<div class="widget">
+
+  <div class="title color7">
+    <h4>Novos Videos</h4>
+  </div>
+
+  <% videos().each do |video| %>
+      <div class="relative hover-shadow mb">
+        <a href='http://www.youtube.com/embed/<%= video.vid %>' data-type="iframe" data-options="width: 900, height: 700" title="Ir para categoria Vídeos" class="ilightbox">
+          <img src="<%= video.image %>" alt="<%= video.title %>" width="100%">
+        </a>
+        <div class="r_content"><a class="cat color5" href='#' title="Ir para categoria Vídeos">Videos</a>
+          <div class="r_title"><a><%= video.title %></a></div>
+        </div>
+      </div>
+  <% end %>
+
+</div>
+<!-- widget -->

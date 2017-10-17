@@ -1,0 +1,13 @@
+<div class="panel-heading">
+  <h4>Editing category</h4>
+</div>
+
+
+<div class="panel-body">
+  <%= render 'form' %>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Show', [:admin, @category], class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_categories_path, class: 'btn btn-default' %>
+</div>

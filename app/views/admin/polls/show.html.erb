@@ -1,0 +1,28 @@
+<div class="panel-heading">
+  <h4>Mostrando Enquete</h4>
+</div>
+
+<div class="panel-body">
+
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Title:</strong></dt>
+    <dd><%= @poll.title %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Slug:</strong></dt>
+    <dd><%= @poll.slug %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Status:</strong></dt>
+    <dd><%= @poll.status %></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_poll_path(@poll), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_polls_path, class: 'btn btn-default' %>
+</div>

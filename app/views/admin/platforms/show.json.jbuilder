@@ -1,0 +1,1 @@
+json.extract! @platform, :title, :logo, :content, :date, :status, :created_at, :updated_at

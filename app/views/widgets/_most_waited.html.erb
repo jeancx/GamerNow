@@ -1,0 +1,44 @@
+<%# encoding: utf-8 %>
+<div class="widget">
+  <div class="title color9">
+    <h4>Games Populares</h4>
+  </div>
+  <div class="small_slider_hots owl-carousel owl-theme">
+    <div class="item clearfix">
+      <ul class="small_posts">
+        <% @cont = 1 %>
+        <% top_games1().each do |game| %>
+            <li class="clearfix">
+              <a class="s_thumb hover-shadow" href="#"><img width="70" height="70" src="<%= game.cover.thumb %>" alt="<%= game.title %>"><span><%= @cont %></span></a>
+
+              <h3><a href="#"><%= game.title %></a></h3>
+
+              <div class="meta mb"><a class="cat color1" href="#" title="View all posts under Entertainment">Playstation
+                4</a><span class="post_rating" href="#" title="Rating">8.89</span></div>
+            </li>
+            <% @cont=@cont+1 %>
+        <% end %>
+
+      </ul>
+    </div>
+    <div class="item clearfix">
+      <ul class="small_posts">
+        <% top_games2().each do |game| %>
+            <li class="clearfix">
+              <a class="s_thumb hover-shadow" href="#"><img width="70" height="70" src="<%= game.cover.thumb %>" alt="<%= game.title %>"><span><%= @cont %></span></a>
+
+              <h3><a href="#"><%= game.title %></a></h3>
+
+              <div class="meta mb">
+                <a class="cat color6" href="#" title="View all posts under People">People</a><span class="post_rating" href="#" title="Rating">7</span>
+              </div>
+            </li>
+            <% @cont=@cont+1 %>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+  <!-- /slides -->
+</div>
+<!-- /widget -->

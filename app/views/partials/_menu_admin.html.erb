@@ -1,0 +1,129 @@
+<nav class="navbar navbar-inverse" style="margin-bottom: 0">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="margin-top: -15px">
+        <img alt="GamerNow" src="/images/logo.png" class="img-responsive" width="220">
+      </a>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li<% if current_page?('/admin') %> class="active"<% end %>><a href="/admin"><i class="fa fa-dashboard"></i> </a></li>
+
+        <li class="dropdown <% if current_page?('/admin/posts') or current_page?('/admin/posts/new') or current_page?('/admin/categories') or current_page?('/admin/features') %> active<% end %>"><a href="#"><i class="fa fa-file-text"></i> Artigos</a>
+          <ul class="dropdown-menu">
+            <li<% if current_page?('/admin/posts') %> class="active"
+               <% end %>><a href="/admin/posts"><i class="fa fa-list"></i> Listar</a></li>
+            <li<% if current_page?('/admin/posts/new') %> class="active"
+               <% end %>><a href="/admin/posts/new"><i class="fa fa-plus"></i> Criar</a></li>
+            <% if current_user.has_role? :admin %>
+                <li<% if current_page?('/admin/categories') %> class="active"
+                   <% end %>><a href="/admin/categories"><i class="fa fa-tags"></i> Categorias</a></li>
+            <% end %>
+            <li<% if current_page?('/admin/features') %> class="active"
+               <% end %>><a href="/admin/features"><i class="fa fa-paperclip"></i> Destaques</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown <% if current_page?('/admin/images') or current_page?('/admin/videos') %> active<% end %>">
+          <a href="/admin/medias" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-picture-o"></i>
+            Mídias</a>
+          <ul class="dropdown-menu">
+            <li<% if current_page?('/admin/images') %> class="active"
+               <% end %>><a href="/admin/images"><i class="fa fa-camera"></i> Imagens</a></li>
+            <li<% if current_page?('/admin/videos') %> class="active"
+               <% end %>><a href="/admin/videos"><i class="fa fa-video-camera"></i> Vídeos</a></li>
+            <% if current_user.has_role? :admin %>
+                <li<% if current_page?('/admin/slides') %> class="active"
+                   <% end %>><a href="/admin/slides"><i class="fa fa-play"></i> Slides</a></li>
+            <% end %>
+          </ul>
+        </li>
+
+        <% if current_user.has_role? :admin %>
+            <li class="dropdown <% if current_page?('/admin/pages') or current_page?('/admin/pages/new') %> active<% end %>">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file"></i>
+                Páginas</a>
+              <ul class="dropdown-menu">
+                <li<% if current_page?('/admin/pages') %> class="active"
+                   <% end %>><a href="/admin/pages"><i class="fa fa-list"></i> Listar</a></li>
+                <li<% if current_page?('/admin/pages/new') %> class="active"
+                   <% end %>><a href="/admin/pages/new"><i class="fa fa-plus"></i> Criar</a></li>
+              </ul>
+            </li>
+        <% end %>
+
+        <li class="dropdown <% if current_page?('/admin/games') or current_page?('/admin/games/new') or current_page?('/admin/companies') or current_page?('/admin/genres') or current_page?('/admin/platforms') %> active<% end %>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad"></i>
+            Jogos</a>
+          <ul class="dropdown-menu">
+            <li
+            <% if current_page?('/admin/games') %> class="active"
+            <% end %>><a href="/admin/games"><i class="fa fa-list"></i> Listar</a></li>
+            <li
+            <% if current_page?('/admin/games/new') %> class="active"
+            <% end %>><a href="/admin/games/new"><i class="fa fa-plus"></i> Criar</a></li>
+            <li
+            <% if current_page?('/admin/companies') %> class="active"
+            <% end %>><a href="/admin/companies"><i class="fa fa-building"></i> Companias</a></li>
+            <li
+            <% if current_page?('/admin/genres') %> class="active"
+            <% end %>><a href="/admin/genres"><i class="fa fa-folder-o"></i> Generos</a></li>
+            <li
+            <% if current_page?('/admin/platforms') %> class="active"
+            <% end %>><a href="/admin/platforms"><i class="fa fa-gamepad"></i> Plataformas</a>
+            </li>
+          </ul>
+        </li>
+
+        <% if current_user.has_role? :admin %>
+            <li class="dropdown <% if current_page?('/admin/adverts') or current_page?('/admin/polls') or current_page?('/admin/users') or current_page?('/admin/options') %> active<% end %>">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gears"></i>
+                Config</a>
+              <ul class="dropdown-menu">
+                <li<% if current_page?('/admin/adverts') %> class="active"
+                   <% end %>><a href="/admin/adverts"><i class="fa fa-tags"></i> Anúncios</a></li>
+                <li<% if current_page?('/admin/polls') %> class="active"
+                   <% end %>><a href="/admin/polls"><i class="fa fa-list"></i> Enquetes</a></li>
+                <li<% if current_page?('/admin/users') %> class="active"
+                   <% end %>><a href="/admin/users"><i class="fa fa-users"></i> Usuários</a></li>
+                <li<% if current_page?('/admin/options') %> class="active"
+                   <% end %>><a href="/admin/options"><i class="fa fa-cog"></i> Opções</a></li>
+              </ul>
+            </li>
+        <% end %>
+
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown pull-right <% if current_page?('/users/new') or current_page?('/users/edit') %> active<% end %>">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="bottomtip" rel="nofollow" data-method="delete" href="<%= current_user.id %>" title="Sair"><i class="fa fa-user"></i>
+                Detalhes</a>
+            </li>
+            <li>
+              <a class="bottomtip" rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>" title="Sair"><i class="fa fa-user"></i>
+                Sair</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

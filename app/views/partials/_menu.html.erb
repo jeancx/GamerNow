@@ -1,0 +1,56 @@
+<%# encoding: utf-8 %>
+<div class="clearfix">
+  <div class="sticky_true">
+
+    <div class="c_head clearfix boxed">
+      <nav>
+        <ul class="sf-menu" id="sf-menu">
+          <div class="logo" onclick="location.href='/'"></div>
+          <li class="color1"><a href="#"><i class="fa fa-gamepad"></i> Plataformas</a>
+            <ul>
+              <li><a href="#"><i class="fa fa-play"></i>PC</a></li>
+              <li><a href="#"><i class="fa fa-play"></i>Playstation 4</a></li>
+              <li><a href="#"><i class="fa fa-play"></i>X-Box One</a></li>
+              <li><a href="#"><i class="fa fa-play"></i>Wii U</a></li>
+              <li><a href="#"><i class="fa fa-play"></i>3DS</a></li>
+              <li><a href="#"><i class="fa fa-play"></i>PS Vita</a></li>
+              <li><a href="#"><i class="fa fa-list"></i>Outras +</a></li>
+            </ul>
+          </li>
+          <li class="color2"><a href="/revisoes"><i class="fa fa-file-text-o"></i> Revisões</a></li>
+          <li class="color3"><a href="/noticias"><i class="fa fa-file-text-o"></i> Notícias</a></li>
+          <li class="color5"><a href="/posts"><i class="fa fa-globe"></i> Mundo Gamer</a></li>
+          <li class="color4"><a href="/videos"><i class="fa fa-video-camera"></i> Vídeos</a></li>
+        </ul>
+        <!-- /menu -->
+      </nav>
+      <!-- /nav -->
+
+
+      <div class="hidden-md hidden-lg logo2" onclick="location.href='/'"></div>
+
+      <div class="right_icons">
+
+        <% if user_signed_in? %>
+            <a class="bottomtip" rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>" title="Sair"><i class="fa fa-user"></i></a>
+        <% else %>
+            <a class="bottomtip" rel="nofollow" href="<%= new_user_session_path %>" title="Logar"><i class="fa fa-user"></i></a>
+        <% end %>
+
+
+
+        <div class="search">
+          <div class="search_icon"><i class="fa fa-search"></i></div>
+          <div class="s_form">
+            <form action="/busca" id="search" method="get">
+              <input id="inputhead" name="search" type="text" onfocus="if (this.value=='Digite sua busca...') this.value = '';" onblur="if (this.value=='') this.value = 'Digite sua busca...';" value="Digite sua busca..." placeholder="Digite sua busca...">
+              <button type="submit"><i class="fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

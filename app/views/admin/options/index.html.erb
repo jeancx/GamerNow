@@ -1,0 +1,36 @@
+<div class="panel-heading">
+  <h4>Listando Opcoes<%= link_to '', new_admin_option_path, class: 'btn btn-primary btn-lg fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @options.each do |option| %>
+        <tr>
+          <td><%= option.type %></td>
+          <td><%= option.name %></td>
+          <td><%= option.value %></td>
+          <td><%= link_to '', [:admin, option], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_option_path(option), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+          <td><%= link_to '', [:admin, option], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @options, renderer: BootstrapPagination::Rails %>
+</div>
+

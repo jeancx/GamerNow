@@ -1,0 +1,105 @@
+<%= form_for([:admin, @game]) do |f| %>
+
+    <% if @game.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h2 class="panel-title"><%= pluralize(@game.errors.count, "error") %> prohibited this game from being
+              saved:</h2>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @game.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="col-md-9">
+
+      <div class="form-group">
+        <%= f.label :title, 'Titulo', class: 'control-label col-md-2' %>
+        <div class="col-md-10" style="padding: 0">
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-group" style="padding: 0; margin-top: 20px">
+        <%= f.label :date, class: 'control-label col-md-2' %>
+        <div class="controls col-md-10">
+          <%= f.datetime_select :date, class: 'form-control' %>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="form-group">
+        <%= f.text_area :content, class: 'form-control', id: "editor" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mature, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :mature, class: 'form-control', rows: 4 %>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="text-center">
+        <%= f.label :cover, class: 'control-label' %>
+        <% if (@game.cover.present?) %>
+            <img src="<%= @game.cover %>" id="showIMG" class="img-responsive img-thumbnail">
+        <% else %>
+            <img src="/images/assets/1280x720.png" id="showIMG" class="img-responsive img-thumbnail">
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.file_field :cover, class: 'form-control' %>
+      </div>
+
+      <div class="text-center">
+        <%= f.label :background, class: 'control-label' %>
+        <% if (@game.cover.present?) %>
+            <img src="<%= @game.background %>" id="showIMG" class="img-responsive img-thumbnail">
+        <% else %>
+            <img src="/images/assets/1280x720.png" id="showIMG" class="img-responsive img-thumbnail">
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.file_field :background, class: 'form-control' %>
+
+      </div>
+
+      <div class="form-group">
+        <%= f.label :platform_ids, "Plataformas", class: 'control-label' %>
+        <div class="controls">
+          <%= f.select :platform_ids, Platform.all.collect { |x| [x.shortname, x.id] }, {}, :class => 'form_multiselect', :multiple => true %>
+        </div>
+      </div>
+
+      <% if current_user.has_role? :admin or :moderator %>
+          <div class="form-group">
+            <%= f.label :status, "Status", class: 'control-label' %>
+            <div class="controls">
+              <%= select_tag :status, options_for_select([['Rascunho', 'draft'], ['Publicado', 'published']]), class: 'form-control' %>
+            </div>
+          </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="controls">
+          <%= f.submit nil, class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+    </div>
+<% end %>

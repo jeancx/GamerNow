@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h2>Listando Comentarios de Artigos</h2>
+</div>
+
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Post</th>
+      <th>Content</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @post_comments.each do |post_comment| %>
+        <tr>
+          <td><%= post_comment.user %></td>
+          <td><%= post_comment.post %></td>
+          <td><%= post_comment.content %></td>
+          <td><%= link_to '', [:admin, post_comment], class: 'fa btn btn-default btn-xs' %></td>
+          <td><%= link_to '', edit_admin_post_comment_path(post_comment), class: 'fa btn btn-default btn-xs' %></td>
+          <td><%= link_to '', [:admin, post_comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa btn btn-xs btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="page-footer">
+  <%= will_paginate @post_comments, renderer: BootstrapPagination::Rails %>
+</div>

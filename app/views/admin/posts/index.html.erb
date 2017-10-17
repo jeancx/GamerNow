@@ -1,0 +1,42 @@
+<%# encoding: utf-8 %>
+<div class="panel-heading">
+  <h4>Listando Artigos <%= link_to '', new_admin_post_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Categoria</th>
+      <th>Autor</th>
+      <th>Status</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.category.title %></td>
+          <td><%= post.user.name %></td>
+          <td><%= post.status %></td>
+          <td><%= link_to '', [:admin, post], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_post_path(post), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+          <% if current_user.has_role? :admin %>
+              <td><%= link_to '', [:admin, post], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
+
+

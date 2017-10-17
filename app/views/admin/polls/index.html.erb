@@ -1,0 +1,36 @@
+<div class="panel-heading">
+  <h4>Listando Enquetes <%= link_to '', new_admin_poll_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Status</th>
+      <th width="10"></th>
+      <th width="10"></th>
+      <th width="10"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @polls.each do |poll| %>
+        <tr>
+          <td><%= poll.title %></td>
+          <td><%= poll.slug %></td>
+          <td><%= poll.status %></td>
+          <td><a href="/admin/poll_options/?id=<%= poll.id %>" class="btn btn-sm btn-default fa fa-list"></a></td>
+          <td><%= link_to '', [:admin, poll], class: 'btn btn-sm btn-default fa fa-search' %></td>
+          <td><%= link_to '', edit_admin_poll_path(poll), class: 'btn btn-sm btn-default fa fa-pencil' %></td>
+          <td><%= link_to '', [:admin, poll], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger fa fa-trash' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @polls, renderer: BootstrapPagination::Rails %>
+</div>

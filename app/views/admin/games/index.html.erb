@@ -1,0 +1,35 @@
+<div class="panel-heading">
+  <h4>Listando Games <%= link_to '', new_admin_game_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Capa</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @games.each do |game| %>
+        <tr>
+          <td><%= game.title %></td>
+          <td><img src="<%= game.cover %>" class="img-thumbnail" style="max-height: 100px!important;"></td>
+          <td><%= game.date %></td>
+          <td><%= game.status %></td>
+          <td><%= link_to '', [:admin, game], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_game_path(game), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @games, renderer: BootstrapPagination::Rails %>
+</div>

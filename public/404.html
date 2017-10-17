@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GamerNow - Página Não Encontrada (404)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/icon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/plugins/blockrain/style.css">
+    <link rel="stylesheet" src="/plugins/blockrain/blockrain.css">
+    <style>
+        header{margin-top: 20px;}
+    </style>
+</head>
+
+<body>
+
+<section id="examples">
+    <header>
+        <img src="/images/logo.png">
+        <h1>Página Não Encontrada</h1>
+    </header>
+    <article id="example-slider">
+        <div class="example">
+            <div class="theme">Tema: <strong>"vim"</strong></div>
+            <div class="instructions">
+                Use somente as setas
+                <div class="keyboard">
+                    <div class="key key-up"></div>
+                    <div class="key key-left"></div>
+                    <div class="key key-down"></div>
+                    <div class="key key-right"></div>
+                </div>
+            </div>
+            <div class="game" id="tetris-demo"></div>
+        </div>
+        <div class="buttons">
+            <a href="" class="btn btn-prev">Anterior</a>
+            <a href="" class="btn btn-next">Próximo</a>
+        </div>
+    </article>
+
+</section>
+
+
+<!--section class="play">
+
+  <h1>Play</h1>
+
+  <div class="game" id="tetris-play">
+
+  </div>
+
+</section-->
+
+<!-- jQuery and Blockrain.js -->
+<script src="/plugins/blockrain/jquery-1.11.1.min.js"></script>
+<script src="/plugins/blockrain/blockrain.jquery.libs.js"></script>
+<script src="/plugins/blockrain/blockrain.jquery.src.js"></script>
+<script src="/plugins/blockrain/blockrain.jquery.themes.js"></script>
+
+<script>
+
+
+    var $demo = $('#tetris-demo').blockrain({
+        speed: 20,
+        theme: 'vim',
+        onStart: function() {
+            ga( 'send', 'event', 'tetris', 'started');
+        },
+        onLine: function() {
+            ga( 'send', 'event', 'tetris', 'line');
+        },
+        onGameOver: function(score){
+            ga( 'send', 'event', 'tetris', 'over', score);
+        }
+    });
+
+    $('#example-slider').find('.btn-next').click(function(event){
+        event.preventDefault();
+        switchDemoTheme(true);
+    });
+    $('#example-slider').find('.btn-prev').click(function(event){
+        event.preventDefault();
+        switchDemoTheme(false);
+    });
+
+    function switchDemoTheme(next) {
+
+        var themes = Object.keys(BlockrainThemes);
+
+        var currentTheme = $demo.blockrain('theme');
+        var currentIx = themes.indexOf(currentTheme);
+
+        if( next ) { currentIx++; }
+        else { currentIx--; }
+
+        if( currentIx >= themes.length ){ currentIx = 0; }
+        if( currentIx < 0 ){ currentIx = themes.length-1; }
+
+        $demo.blockrain('theme', themes[currentIx]);
+        $('#example-slider .theme strong').text( '"'+themes[currentIx]+'"' );
+    }
+</script>
+
+</body>
+</html>

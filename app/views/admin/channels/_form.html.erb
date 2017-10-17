@@ -1,0 +1,40 @@
+<%= form_for([:admin, @channel], html: { class: 'form-horizontal channel' }) do |f| %>
+  <% if @channel.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @channel.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :logo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

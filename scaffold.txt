@@ -1,0 +1,113 @@
+
+//// Scaffold
+
+#Platform 
+rails g admin:scaffold_controller Platform title:string logo:string content:text date:datetime status:string --bootstrap
+
+#Company 	
+rails g admin:scaffold_controller Company title:string logo:string description:text --bootstrap
+
+#Genre 	
+rails g admin:scaffold_controller Genre title:string description:text --bootstrap
+
+#Genre 	
+rails g admin:scaffold_controller Genre title:string description:text --bootstrap
+
+#Page 	
+rails g admin:scaffold_controller Page title:string content:text status:string --bootstrap
+
+#Category 	
+rails g admin:scaffold_controller Category title:string description:text category:references --bootstrap
+
+#Tag 	
+rails g admin:scaffold_controller Tag name:string --bootstrap
+
+#Comment 	
+rails g admin:scaffold_controller Comment user:belongs_to post:belongs_to content:text --bootstrap
+
+#User 	
+rails g admin:scaffold_controller User name:string description:text photo:string cover:string birthday:date gender:string email:string encrypted_password:string current_sign_in_ip:string last_sign_in_ip:string --bootstrap
+
+#Game
+rails g admin:scaffold_controller Game title:string content:text logo:string photo:string cover:string date:datetime mature:text status:string --bootstrap
+
+#Advert 	
+rails g admin:scaffold_controller Advert title:string description:text --bootstrap
+
+#Option 	
+rails g admin:scaffold_controller Option type:string name:string value:text --bootstrap
+
+#Slide 	
+rails g admin:scaffold_controller Slide category:string title:string image:string --bootstrap
+
+#Video 	
+rails g admin:scaffold_controller Video provider:string title:string vid:string --bootstrap
+
+#Post 
+rails g admin:scaffold_controller Post title:string content:text date:datetime status:string --bootstrap
+
+#Image
+rails g admin:scaffold_controller Image description:string file:string --bootstrap
+
+#Channel
+rails g admin:scaffold_controller Channel  title:string content:text logo:string --bootstrap
+
+#PostComments
+rails g admin:scaffold_controller PostComments user:references post:references content:text --bootstrap
+
+#ImageComments
+rails g admin:scaffold_controller ImageComments user:references image:references content:text --bootstrap
+
+#VideoComments
+rails g admin:scaffold_controller VideoComments user:references video:references content:text --bootstrap
+
+#Background	
+rails g admin:scaffold_controller Background title:string image:string --bootstrap
+
+#Feature
+rails g admin:scaffold_controller Feature image_a:file image_b:file post:references published:boolean --bootstrap
+
+#Poll
+rails g admin:scaffold_controller Poll title:string slug:string status:string --bootstrap
+
+#PollOption
+rails g admin:scaffold_controller PollOption poll:references name:string --bootstrap
+
+//// Models
+
+#Slide 
+rails generate model Slide category:string title:string image:string
+
+#Video 
+rails generate model Image title:string  vid:string
+
+#Image 
+rails generate model Image title:string
+rails generate paperclip user avatar
+
+#ImageComments
+rails generate model ImageComments user:references image:references content:text
+
+#VideoComments
+rails generate model VideoComments user:references video:references content:text
+
+#Channel
+rails generate model Channel  title:string content:text logo:string
+
+#ChannelMember
+rails generate model ChannelMember channel:references user:references
+
+#Background	
+rails generate model Background title:string image:string
+
+#Feature
+rails generate model Feature image_a:file image_b:file post:references published:boolean
+
+#Poll
+rails generate model Poll title:string slug:string status:string
+
+#PollOption
+rails generate model Poll poll:references name:string
+
+#PollVotes
+rails generate model Poll poll:references poll_options:references user:references

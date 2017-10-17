@@ -1,0 +1,14 @@
+<%# encoding: utf-8 %>
+<div class="posts_block mbf clearfix">
+  <div class="title color8">
+    <h4>Galeria</h4>
+    <a href="#" class="feed toptip" title="RSS Feed"><i class="icon-feed"></i></a></div>
+  <div class="carousel_TV">
+    <% @images.each do |img| %>
+    <div class="item hover-shadow">
+      <a href="/images/<%= img.id %>"><img class="toptip" src="<%= img.file.thumb %>" alt="#" title="<%= img.description %>"></a>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!-- posts block carousel -->

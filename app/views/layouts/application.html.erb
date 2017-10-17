@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title('') %> </title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+  <%= tag 'meta', :content => @meta_keywords, :name => 'keywords' unless @meta_keywords.blank? %><%= tag 'meta', :content => @meta_description, :name => 'description' unless @meta_description.blank? %>
+
+  <%= render partial: 'partials/styles' %>
+
+  <%= csrf_meta_tags %>
+
+  <%= yield :head %>
+
+</head>
+<body>
+
+<div id="layout">
+  <div class="hidden-xs hidden-sm">
+    <%= render partial: 'partials/news' %>
+  </div>
+  <div class="full">
+    <header id="header">
+      <%= render partial: 'partials/menu' %>
+      <%= render partial: 'partials/slideshow' %>
+    </header>
+
+    <div class="main">
+      <div class="boxed">
+
+        <div class="page-content">
+
+          <%= yield %>
+
+        </div>
+
+        <footer id="footer">
+          <%= render partial: 'partials/footer_a' %>
+          <%= render partial: 'partials/footer_b' %>
+        </footer>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<%= render partial: 'partials/scripts' %>
+
+<script>
+    window.onload = date_time('date_time');
+    $('.ilightbox').iLightBox();
+</script>
+
+<%= yield :footer %>
+
+</body>
+</html>

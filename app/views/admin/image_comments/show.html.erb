@@ -1,0 +1,27 @@
+<div class="panel-heading">
+  <h4>Mostrando Comentários da Imagem</h4>
+</div>
+
+<div class="panel-body">
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>User:</strong></dt>
+    <dd><%= @image_comment.user %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Image:</strong></dt>
+    <dd><%= @image_comment.image %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Content:</strong></dt>
+    <dd><%= @image_comment.content %></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_image_comment_path(@image_comment), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_image_comments_path, class: 'btn btn-default' %>
+</div>

@@ -1,0 +1,18 @@
+<form class="wp-polls-form" name="poll" id="poll_form" action="#" method="post">
+    <p class="tac"><strong><%= @poll.title %></strong></p>
+
+    <div class="wp-polls-ans">
+        <ul class="wp-polls-ul">
+            <% @poll.poll_options.each do |poll_option| %>
+            <li style="margin-left: 30px">
+                <input type="radio" name="poll_option[]" value="<%= poll_option.id %>">
+                <%= poll_option.name %>
+            </li>
+            <% end %>
+        </ul>
+        <div class="text-center">
+            <button type="button" name="vote" value="<%= @poll.id %>" class="btn btn-primary" onclick="vote()">Vote</button>
+            <button type="button" name="results" value="<%= @poll.id %>" class="btn btn-warning" onclick="pollResults(<%= @poll.id %>)">Ver Resultados</button>
+        </div>
+    </div>
+</form>

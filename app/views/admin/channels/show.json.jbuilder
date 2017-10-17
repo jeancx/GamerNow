@@ -1,0 +1,1 @@
+json.extract! @channel, :title, :content, :logo, :created_at, :updated_at

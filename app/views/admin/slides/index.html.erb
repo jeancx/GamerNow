@@ -1,0 +1,35 @@
+<div class="panel-heading">
+  <h4>Listando Slides<%= link_to '', new_admin_slide_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Titulo</th>
+      <th>Imagem</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @slides.each do |slide| %>
+        <tr>
+          <td><%= slide.category %></td>
+          <td><%= slide.title %></td>
+          <td><%= slide.image %></td>
+          <td><%= link_to '', [:admin, slide], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_slide_path(slide), class: 'fa fa-pencil btn btn-sm btn-default' %></td>
+          <td><%= link_to '', [:admin, slide], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @slides, renderer: BootstrapPagination::Rails %>
+</div>

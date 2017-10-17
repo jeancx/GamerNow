@@ -1,0 +1,6 @@
+# encoding: UTF-8
+pt-BR:
+    will_paginate:
+        previous_label: "&#8592; Anterior"
+        next_label: "Proximo &#8594;"
+        page_gap: "&hellip;"

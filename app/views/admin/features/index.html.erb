@@ -1,0 +1,35 @@
+<div class="panel-heading">
+  <h4>Listando Destaques <%= link_to '', new_admin_feature_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Image B</th>
+      <th>Post</th>
+      <th>Published</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @features.each do |feature| %>
+        <tr>
+          <td><%= image_tag feature.image_b %></td>
+          <td><%= feature.post.title %></td>
+          <td><%= feature.published %></td>
+          <td><%= link_to '', [:admin, feature], class: 'fa fa-search btn btn-default btn-sm' %></td>
+          <td><%= link_to '', edit_admin_feature_path(feature), class: 'fa fa-pencil btn btn-default btn-sm' %></td>
+          <td><%= link_to '', [:admin, feature], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @features, renderer: BootstrapPagination::Rails %>
+</div>

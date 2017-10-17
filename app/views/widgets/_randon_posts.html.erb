@@ -1,0 +1,22 @@
+<%# encoding: utf-8 %>
+<div class="widget">
+  <div class="title color5">
+    <h4>Artigos Aleatórios</h4>
+  </div>
+
+  <% random_posts().each do |post| %>
+      <% if post.image.present? %>
+          <div class="relative hover-shadow mb">
+            <a href="<%= post.link %>"><img src="<%= post.image.file.thumb %>" alt=""></a>
+
+            <div class="r_content">
+              <a class="cat color5" href="#" title="View all posts under Music"><%= post.category.title %></a>
+
+              <div class="r_title"><a href="<%= post.link %>"><%= post.title %></a></div>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+
+</div>
+<!-- widget -->

@@ -1,0 +1,30 @@
+<div class="col-lg-12">
+  <%- if controller_name != 'sessions' %>
+      <%= link_to t(".sign_in", :default => "Sign in"), new_session_path(resource_name), class: "btn btn-success btn-block" %>
+      <br/>
+  <% end -%>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <a class="btn btn-block btn-social btn-github" href="<%= new_registration_path(resource_name)%>">
+        <i class="fa fa-gamepad"></i> Registrar-se em GamerNow
+      </a>
+      <br>
+  <% end -%>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to t('.didn_t_receive_confirmation_instructions', :default => "Didn't receive confirmation instructions?"), new_confirmation_path(resource_name), class: "btn btn-warning btn-block" %>
+      <br/>
+  <% end -%>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to t('.didn_t_receive_unlock_instructions', :default => "Didn't receive unlock instructions?"), new_unlock_path(resource_name), class: "btn btn-warning btn-block" %>
+      <br/>
+  <% end -%>
+
+  <a class="btn btn-block btn-social btn-facebook" href="/users/auth/facebook"><i class="fa fa-facebook"></i> Entrar com Facebook</a>
+  <a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter" style="display: none"><i class="fa fa-twitter"></i> Entrar com Twitter</a>
+  <a class="btn btn-block btn-social btn-google" href="/users/auth/google_oauth2"><i class="fa fa-google"></i> Entrar com Google</a>
+  <a class="btn btn-block btn-social btn-instagram" href="/users/auth/instagram" style="display: none"><i class="fa fa-instagram"></i> Entrar com Instagram</a>
+  <br/>
+
+</div>

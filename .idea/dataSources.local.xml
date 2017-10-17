@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails GamerNow: development" uuid="7aca7df7-6faa-4397-b527-620fb2d70863">
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
+    </data-source>
+    <data-source name="Rails GamerNow: test" uuid="ce685eb9-2ef8-4e35-a79b-97402788a72a">
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
+    </data-source>
+    <data-source name="Rails GamerNow: production" uuid="cd56ffd0-1fdd-4085-9e22-de57ff3e8695">
+      <first-sync>true</first-sync>
+      <user-name>GamerNow</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfeddfebdfe7dfefdff8dfe4dfe5dffddff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

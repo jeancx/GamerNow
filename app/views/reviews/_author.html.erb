@@ -1,0 +1,19 @@
+<%# encoding: utf-8 %>
+<div class="author_post mbf clearfix">
+  <div class="title"><h4>Sobre <%= @post.user.name %></h4></div>
+  <div class="author_co clearfix">
+    <img src="<%= @post.user.gravatar_url %>" alt="">
+
+    <p><%= @post.user.description %><p>
+
+    <div class="social">
+      <a href="#" class="toptip" title="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="toptip" title="Facebook"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="toptip" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+      <a href="#" class="toptip" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+    </div>
+    <!-- /social -->
+  </div>
+  <!-- /author co -->
+</div>
+<!-- /author -->

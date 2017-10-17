@@ -1,0 +1,12 @@
+#wp-calendar td.pad, .boxed-margin, .boxed, .full {background: #262627}
+#wp-calendar td, #wp-calendar th {border: 1px solid #262627}
+a, h1, h2, h3, h4, h5, h6 {color: #FFF}
+.counter span {color: #CCC}
+.small_posts li.clearfix {border-bottom: 1px solid #363636}
+#wp-calendar td, #wp-calendar th {background: #1B1B1B}
+.tags a {background: #313131}
+.tipsy-inner {background-color: #FFF;color: #313131}
+.tipsy-n .tipsy-arrow:before {border-bottom: 6px solid #FFF}
+.tipsy-s .tipsy-arrow:before {border-top: 6px solid #FFF}
+.tipsy-e .tipsy-arrow:before {border-top: 6px solid #FFF}
+.tipsy-w .tipsy-arrow:before {border-right: 6px solid #FFF}

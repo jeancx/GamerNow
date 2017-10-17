@@ -1,0 +1,28 @@
+<div class="panel-heading">
+  <h4>Mostrando Comentario de Video</h4>
+</div>
+
+<div class="panel-body">
+
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>User:</strong></dt>
+    <dd><%= @video_comment.user %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Video:</strong></dt>
+    <dd><%= @video_comment.video %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Content:</strong></dt>
+    <dd><%= @video_comment.content %></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_video_comment_path(@video_comment), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_video_comments_path, class: 'btn btn-default' %>
+</div>

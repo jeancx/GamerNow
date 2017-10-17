@@ -1,0 +1,150 @@
+<%# encoding: utf-8 %>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-file-text fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <h1><%= Post.count %></h1>
+
+              <div>Artigos!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-picture-o fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <h1><%= Image.count %></h1>
+
+              <div>Imagens</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-video-camera fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <h1><%= Video.count %></h1>
+
+              <div>Videos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-gamepad fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <h1><%= Game.count %></h1>
+
+              <div>Jogos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Artigos Aguardando Aprovação
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="row">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th class="text-center">Titulo</th>
+                <th class="text-center">Autor</th>
+                <th class="text-center">Status</th>
+                <th class="text-center" width="10"></th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @posts.each do |post| %>
+                  <tr>
+                    <td class="text-center"><%= post.title %></td>
+                    <td class="text-center"><%= post.user.name %></td>
+                    <td class="text-center"><%= post.status %></td>
+                    <td class="text-center"><%= link_to '', [:admin, post], class: 'fa fa-search-plus btn btn-xs btn-default' %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Últimos Artigos Publicados
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="row">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th class="text-center">Titulo</th>
+                <th class="text-center">Autor</th>
+                <th class="text-center">Status</th>
+                <th class="text-center" width="50"></th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @posts_published.each do |post| %>
+                  <tr>
+                    <td class="text-center"><%= post.title %></td>
+                    <td class="text-center"><%= post.user.name %></td>
+                    <td class="text-center"><%= post.status %></td>
+                    <td class="text-center"><%= link_to '', [:admin, post], class: 'fa fa-search-plus btn btn-xs btn-default' %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+
+  </div>
+
+</div>

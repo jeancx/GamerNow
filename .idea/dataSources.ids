@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails GamerNow: development" uuid="7aca7df7-6faa-4397-b527-620fb2d70863">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails GamerNow: test" uuid="ce685eb9-2ef8-4e35-a79b-97402788a72a">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails GamerNow: production" uuid="cd56ffd0-1fdd-4085-9e22-de57ff3e8695">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

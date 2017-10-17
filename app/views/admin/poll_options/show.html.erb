@@ -1,0 +1,23 @@
+<div class="panel-heading">
+  <h4>Mostrando Opcao de Enquete</h4>
+</div>
+
+<div class="panel-body">
+
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Poll:</strong></dt>
+    <dd><%= @poll_option.poll %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Name:</strong></dt>
+    <dd><%= @poll_option.name %></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_poll_option_path(@poll_option), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_poll_options_path, class: 'btn btn-default' %>
+</div>

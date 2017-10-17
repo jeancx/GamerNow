@@ -1,0 +1,41 @@
+<div class="panel-heading">
+  <h2>Listando Usuários<%= link_to '', new_admin_user_path, class: 'btn btn-primary btn-lg fa-plus pull-right' %></h2>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Birthday</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Current sign in ip</th>
+      <th>Last sign in ip</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.birthday %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.email %></td>
+          <td><%= user.current_sign_in_ip %></td>
+          <td><%= user.last_sign_in_ip %></td>
+          <td><%= link_to '', [:admin, user], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_user_path(user), class: 'fa fa-pencil btn btn-sm btn-default' %></td>
+          <td><%= link_to '', [:admin, user], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

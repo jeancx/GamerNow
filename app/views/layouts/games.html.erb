@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title('') %> </title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+  <%= tag 'meta', :content => @meta_keywords, :name => 'keywords' unless @meta_keywords.blank? %><%= tag 'meta', :content => @meta_description, :name => 'description' unless @meta_description.blank? %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <%= render partial: 'partials/styles' %>
+
+  <%= csrf_meta_tags %>
+
+  <%= yield :head %>
+
+</head>
+<body>
+
+<div id="layout">
+  <div class="hidden-xs hidden-sm">
+    <%= render partial: 'partials/news' %>
+  </div>
+  <div class="full">
+
+    <%= yield %>
+
+  </div>
+
+</div>
+
+<%= render partial: 'partials/scripts' %>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    window.onload = date_time('date_time');
+    $('.ilightbox').iLightBox();
+</script>
+
+<%= yield :footer %>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="panel-heading">
+  <h4>Listando Anuncios<%= link_to '', new_admin_image_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Description</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @adverts.each do |advert| %>
+        <tr>
+          <td><%= advert.title %></td>
+          <td><%= advert.description %></td>
+          <td><%= link_to '', [:admin, advert], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_advert_path(advert), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+          <td><%= link_to '', [:admin, advert], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= link_to 'New Advert', new_admin_advert_path, class: 'btn btn-primary' %>
+</div>

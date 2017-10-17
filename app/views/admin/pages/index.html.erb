@@ -1,0 +1,36 @@
+<div class="panel-heading">
+  <h4>Listando Paginas<%= link_to '', new_admin_page_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Conteudo</th>
+      <th>Status</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pages.each do |page| %>
+        <tr>
+          <td><%= page.title %></td>
+          <td><%= page.content %></td>
+          <td><%= page.status %></td>
+          <td><%= link_to '', [:admin, page], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_page_path(page), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+          <td><%= link_to '', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+</div>

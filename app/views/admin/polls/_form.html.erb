@@ -1,0 +1,51 @@
+<% #encoding: utf-8 %>
+<%= form_for([:admin, @poll], html: {class: 'form-horizontal poll'}) do |f| %>
+    <% if @poll.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h2 class="panel-title"><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being
+              saved:</h2>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @poll.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :title, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :status, "Status", class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= select_tag :status, options_for_select([['Rascunho', 'draft'], ['Publicado', 'published'], ['Encerrada', 'finished']]), class: 'form-control' %>
+      </div>
+    </div>
+
+    <% if !@poll.new_record? %>
+        <hr>
+        <div class="form-group">
+          <%= f.label :poll_option, "Opção da Enquete", class: 'control-label col-md-2' %>
+          <div class="col-md-10">
+            <% @poll.poll_option.each do |poll_option| %>
+                <%= text_field_tag 'poll_options[]', poll_option.name, class: 'form-control' %>
+            <% end %>
+            <%= f.text_field :poll_option, class: 'form-control' %>
+          </div>
+        </div>
+        <hr>
+    <% end %>
+
+        <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>

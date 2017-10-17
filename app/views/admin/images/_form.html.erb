@@ -1,0 +1,45 @@
+<%= form_for([:admin, @image], html: {class: 'form-horizontal image'}) do |f| %>
+    <% if @image.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h2 class="panel-title"><%= pluralize(@image.errors.count, "error") %> prohibited this image from being
+              saved:</h2>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @image.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <% if @image.present? %>
+        <div class="form-group">
+          <label class="control-label col-md-2">Image:</label>
+          <div class="col-md-10">
+            <img src="<%= @image.file.thumb %>" class="img-responsive" id="showIMG">
+          </div>
+        </div>
+        </dl>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :description, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :description, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :file, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.file_field :file, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>

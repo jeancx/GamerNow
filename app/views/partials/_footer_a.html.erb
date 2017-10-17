@@ -1,0 +1,99 @@
+<%# encoding: utf-8 %>
+<div class="row clearfix">
+  <div class="grid_3">
+    <div class="widget">
+      <div class="title">
+        <h4>GamerNow.com.br</h4>
+      </div>
+      <p>Síte voltado à notícias, reviews, dicas, vídeos e todo conteudo relacionado a Games de todas as Plataformas e
+        gêneros.</p>
+
+      <p>Tambem uma excelente comunidade virtual em pleno desenvolvimento e expansão voltada ao público Gamer.<br>
+        <br>
+        Email: <a href="contact.html">contato@gamernow.com.br</a></p>
+    </div>
+    <!-- /widget -->
+  </div>
+  <!-- /grid3 -->
+
+  <div class="grid_3">
+    <div class="widget">
+      <div class="title">
+        <h4>Mais Comentados</h4>
+      </div>
+      <ul class="small_posts">
+
+        <% top_reviews().each do |post| %>
+            <li class="clearfix">
+              <a class="s_thumb hover-shadow" href="<%= post.id %>"><img width="70" height="70" src="<%= post.image.file.small %>" alt="#"></a>
+
+              <h3><a href="<%= post.id %>"><%= post.title %></a></h3>
+
+              <div class="meta mb"> 1 dia atrás / <a href="<%= post.id %>"><%= post.id %> comment</a></div>
+            </li>
+        <% end %>
+
+      </ul>
+    </div>
+    <!-- /widget -->
+  </div>
+  <!-- /grid3 -->
+
+  <div class="grid_3">
+    <div class="widget">
+      <div class="title">
+        <h4>Melhores Reviews</h4>
+      </div>
+      <ul class="small_posts">
+
+        <% top_reviews().each do |post| %>
+
+            <li class="clearfix">
+              <a class="s_thumb hover-shadow" href="<%= post.id %>"><img width="70" height="70" src="<%= post.image.file.small %>" alt="#"></a>
+
+              <h3><a href="<%= post.id %>"><%= post.title %></a></h3>
+
+              <div class="meta mb">
+                <a class="cat color1" href="#" title="<%= post.title %>"><%= post.category.title %></a><span class="post_rating" href="#" title="Nota">8.89</span>
+              </div>
+            </li>
+
+        <% end %>
+
+      </ul>
+    </div>
+    <!-- /widget -->
+  </div>
+  <!-- /grid3 -->
+
+  <div class="grid_3">
+    <div class="widget">
+      <div class="title">
+        <h4>Boletim Informátivo</h4>
+      </div>
+      <p> Para recever nosso boletim informativo semanal por email, insira seu email: </p>
+
+      <form id="newsletters" method="post" action="http://feedburner.google.com/fb/a/mailverify" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+        <input type="email" onfocus="if (this.value=='Digite seu Email') this.value = '';" onblur="if (this.value=='') this.value = 'Digite seu Email';" value="Digite seu Email" placeholder="Digite seu Email" required="required">
+        <button type="submit"><i class="icon-checkmark"></i></button>
+      </form>
+    </div>
+    <!-- /widget -->
+
+    <div class="widget">
+      <div class="title">
+        <h4>Siga-nos</h4>
+      </div>
+      <div class="social"><a href="#" class="toptip" title="Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="toptip" title="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="toptip" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="toptip" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="#" class="toptip" title="Github"><i class="fa fa-github"></i></a>
+        <!-- /social -->
+      </div>
+      <!-- /widget -->
+    </div>
+    <!-- /grid3 -->
+  </div>
+  <!-- /row -->
+</div>

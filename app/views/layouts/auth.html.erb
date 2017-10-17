@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GamerNow</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+  <%= render partial: 'layouts/styles' %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<div id="layout">
+
+  <div class="full">
+
+    <header id="header">
+
+      <%= render partial: 'layouts/news' %>
+
+      <%= render partial: 'layouts/menu' %>
+
+      <%= render partial: 'layouts/slideshow' %>
+
+    </header>
+
+    <div class="main">
+      <div class="boxed">
+        <div class="page-content">
+
+          <% if notice %>
+              <div class="grid_12">
+                <p class="alert alert-success"><%= notice %></p>
+              </div>
+          <% end %>
+          <% if alert %>
+              <div class="grid_12">
+                <p class="alert alert-danger"><%= alert %></p>
+              </div>
+          <% end %>
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="boxed">
+      <footer id="footer">
+
+        <%= render partial: 'layouts/footer_a' %>
+
+        <%= render partial: 'layouts/footer_b' %>
+
+      </footer>
+    </div>
+
+  </div>
+
+</div>
+
+<%= render partial: 'layouts/scripts' %>
+
+</body>
+</html>

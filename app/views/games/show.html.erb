@@ -1,0 +1,47 @@
+<header id="header">
+  <%= render partial: 'partials/menu' %>
+  <%= render partial: 'game_bg' %>
+</header>
+
+<div class="main">
+  <div class="boxed">
+
+    <div class="page-content">
+
+      <%= render partial: 'menu' %>
+
+      <div class="row clearfix">
+        <div class="grid_9 alpha posts">
+
+          <div class="grid_12">
+                lol
+            <%= render partial: 'partials/adverts' %>
+          </div>
+
+        </div>
+        <!-- end grid9 -->
+
+        <div class="grid_3 omega sidebar sidebar_a">
+
+          <%= render partial: 'widgets/most_waited' %>
+
+          <%= render partial: 'widgets/polls' %>
+
+          <%= render partial: 'widgets/last_comments' %>
+
+          <%= render partial: 'widgets/tags' %>
+
+        </div>
+        <!-- /grid3 sidebar A -->
+      </div>
+      <!-- /row -->
+
+    </div>
+
+    <footer id="footer">
+      <%= render partial: 'partials/footer_a' %>
+      <%= render partial: 'partials/footer_b' %>
+    </footer>
+
+  </div>
+</div>

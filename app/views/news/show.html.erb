@@ -1,0 +1,106 @@
+<%# encoding: utf-8 %>
+<header id="header">
+  <%= render partial: 'partials/menu' %>
+  <%= render partial: 'partials/slideshow' %>
+</header>
+
+<div class="main">
+  <div class="boxed">
+
+    <div class="page-content">
+
+      <div class="row clearfix">
+        <div class="grid_9 alpha posts">
+
+          <div class="grid_12">
+
+            <div class="single_post mbf clearfix">
+              <h3 class="single_title">
+                <i class="fa fa-file-text-o mi"></i><a href="<%= @post.link %>"><%= @post.title %></a>
+              </h3>
+
+              <div class="meta mb"> por <a href="#"><%= @post.user.name %></a> / publicado em: <%= @post.date %>   /
+                <a href="#comments">0 comentários</a></div>
+
+              <% if @post.image.file.present? %>
+                  <img class="mbt" src="<%= @post.image.file %>" alt="#">
+              <% end %>
+
+              <div class="content" style="font-size: 16px; color: #5A5A5A;">
+                <%= raw(@post.content.html_safe.gsub("\\r\\n", "")) %>
+              </div>
+
+            </div>
+            <!-- /single post -->
+
+            <div class="share_post mbf clearfix">
+              <span> Compatilhar </span>
+              <ul class="socials clearfix list-inline">
+                <li><%= facebook_button %></li>
+                <li><%= twitter_button %></li>
+                <li><%= pinterest_button %></li>
+                <li><%= google_plus_button %></li>
+                <li><%= tumblr_button %></li>
+              </ul>
+              <!-- /socials -->
+            </div>
+            <!-- /share -->
+
+            <%= render partial: 'author' %>
+
+            <div class="posts_links mbf clearfix">
+              <% if @post.prev.present? %>
+                  <a class="grid_6 lefter relative" href="<%= @post.prev.link %>">
+                    <i class="fa fa-chevron-left"></i>
+                    <small> Anterior:</small>
+                    <span> <%= @post.prev.title %> </span>
+                  </a><!-- /grid_6 -->
+              <% end %>
+
+              <% if @post.next.present? %>
+                  <a class="grid_6 righter tar relative" href="<%= @post.next.link %>">
+                    <i class="fa fa-chevron-right"></i>
+                    <small> Próximo:</small>
+                    <span> <%= @post.next.title %> </span>
+                  </a><!-- /grid_6 -->
+              <% end %>
+            </div>
+            <!-- /posts links -->
+
+            <%= render partial: 'related_posts' %>
+
+            <%= render partial: 'partials/adverts' %>
+
+            <div class="disqus_comments" id="comments">
+              <%= raw(disqus_thread) %>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- end grid9 -->
+
+        <div class="grid_3 omega sidebar sidebar_a">
+
+          <%= render partial: 'widgets/most_waited' %>
+
+          <%= render partial: 'widgets/polls' %>
+
+          <%= render partial: 'widgets/last_comments' %>
+
+          <%= render partial: 'widgets/tags' %>
+
+        </div>
+        <!-- /grid3 sidebar A -->
+      </div>
+      <!-- /row -->
+
+    </div>
+
+    <footer id="footer">
+      <%= render partial: 'partials/footer_a' %>
+      <%= render partial: 'partials/footer_b' %>
+    </footer>
+
+  </div>
+</div>

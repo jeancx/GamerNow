@@ -1,0 +1,28 @@
+<div class="panel-heading">
+  <h4>Mostrando Slide</h4>
+</div>
+
+<div class="panel-body">
+
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Category:</strong></dt>
+    <dd><%= @slide.category %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Title:</strong></dt>
+    <dd><%= @slide.title %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Image:</strong></dt>
+    <dd><img src="<%= @slide.image %>" class="img-responsive"></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_slide_path(@slide), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_slides_path, class: 'btn btn-default' %>
+</div>

@@ -1,0 +1,33 @@
+<div class="panel-heading">
+  <h4>Listing poll_options <%= link_to '', new_admin_poll_option_path+'?id='+params[:id], class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Poll</th>
+      <th>Name</th>
+      <th width="10"></th>
+      <th width="10"></th>
+      <th width="10"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @poll_options.each do |poll_option| %>
+        <tr>
+          <td><%= poll_option.poll.title %></td>
+          <td><%= poll_option.name %></td>
+          <td><%= link_to '', [:admin, poll_option], class: 'btn btn-default btn-sm fa fa-search' %></td>
+          <td><%= link_to '', edit_admin_poll_option_path(poll_option)+'?id='+params[:id], class: 'btn btn-default btn-sm fa fa-pencil' %></td>
+          <td><%= link_to '', [:admin, poll_option], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger fa fa-trash' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @poll_options, renderer: BootstrapPagination::Rails %>
+</div>

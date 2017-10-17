@@ -1,0 +1,74 @@
+<%# encoding: utf-8 %>
+<div class="posts_block mbf clearfix">
+  <div class="title color6">
+    <h4>Notícias</h4>
+    <a href="#" class="feed toptip" title="RSS Feed"><i class="icon-feed"></i></a>
+  </div>
+  <!-- /title bar -->
+
+  <% if @news1.present? %>
+
+      <div class="grid_6 alpha">
+        <div class="mb hover-shadow">
+          <a href="<%= @news1.link %>"><img src="<%= @news1.image.file.thumb %>" alt=""></a>
+        </div>
+        <div class="post_m_content">
+          <h3><a href="<%= @news1.link %>"><%= @news1.title %></a></h3>
+
+          <div class="meta mb"> <%= @news1.date %> / <a href="<%= @news1.id %>"><%= @news1.id %> Comentários</a></div>
+          <p> <%= sanitize(@news1.content, :tags=>[]).truncate(260, :separator => " ").html_safe %> </p>
+        </div>
+        <!-- post content -->
+      </div>
+      <!-- /grid6 omega -->
+
+  <% end %>
+
+  <div class="grid_6 omega">
+    <div class="small_slider_music owl-carousel owl-theme">
+
+      <div class="item clearfix">
+        <ul class="small_posts">
+
+          <% @news2.each do |post| %>
+              <li class="clearfix">
+                <a class="s_thumb hover-shadow" href="<%= post.link %>">
+                  <img width="70" height="70" src="<%= post.image.file.small %>" alt="<%= post.title %>">
+                </a>
+
+                <h3><a href="<%= post.link %>"><%= post.title %></a>
+                </h3>
+
+                <div class="meta mb"> <%= post.date %>    / <a href="<%= post.link %>"><%= post.id %> Comentários</a>
+                </div>
+              </li>
+          <% end %>
+
+        </ul>
+      </div>
+
+      <div class="item clearfix">
+        <ul class="small_posts">
+
+          <% @news3.each do |post| %>
+              <li class="clearfix">
+                <a class="s_thumb hover-shadow" href="<%= post.link %>">
+                  <img width="70" height="70" src="<%= post.image.file.small %>" alt="<%= post.title %>">
+                </a>
+
+                <h3><a href="<%= post.link %>"><%= post.title %></a>
+                </h3>
+
+                <div class="meta mb"> <%= post.date %>    / <a href="<%= post.id %>"><%= post.id %> Comentários</a>
+                </div>
+              </li>
+          <% end %>
+
+        </ul>
+      </div>
+
+    </div>
+    <!-- /slides -->
+  </div>
+  <!-- grid6 omega -->
+</div><!-- posts block Music -->

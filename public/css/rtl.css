@@ -1,0 +1,52 @@
+body {direction: rtl}
+.owl-carousel {text-align: right;direction: ltr}
+.logo, .sf-menu li, .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .sf-menu, .counter i, .freq_out, .share_post span {float: right}
+.right_bar .lang, .social_head, #date_time, .ads, #header .search, .right_icons a {float: left}
+.counter span {float: right;padding: 8px 20px 0 0}
+.sf-menu li {border-right: 0;border-left: 1px solid #2B2B2B}
+.search_icon i, .right_icons a {border-right: 1px solid #2B2B2B;border-left: 0}
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {left: auto;right: 0px}
+ul.sf-menu li li:hover ul, ul.sf-menu li li.sfHover ul {left: auto;right: 172px}
+.s_form {right: auto;left: 0}
+#header .search button {right: auto;left: 12px}
+.s_form:after {right: auto;left: 22px}
+.ticker {width: 600px}
+.ticker-content {right: 4px !important}
+#date_time {border-right: 1px solid #2B2B2B}
+.ipress_slider .slide_details {text-align: right;right: 0}
+.sf-menu li li i {margin-left: 8px;margin-right: auto}
+.alpha {margin-left: 1% !important;margin-right: 0 !important}
+.omega {margin-right: 1% !important;margin-left: 0 !important}
+.fll { float: left; margin: 0 0 10px 20px !important }
+.flr { float: right; margin: 0 20px 10px 0 !important }
+.mi { margin-right: 0 !important; margin-left: 4px !important }
+.mid { margin-right: 0 !important; margin-left: 8px !important }
+.mii { margin-left: 0 !important; margin-right: 4px !important }
+.miid { margin-left: 0 !important; margin-right: 8px !important }
+.small_posts .s_thumb {float: right;margin: 0 0 20px 20px}
+[class^='small_slider_'] .owl-controls, [class^='carousel_'] .owl-controls{right: auto !important;left: 46px}
+.small_slider_hots .owl-controls {right: auto !important;left: 12px}
+.posts .title .feed {right: auto;left: 18px}
+.posts .title:after, .widget .title:after {left: auto;right: 22px}
+.tweets .owl-controls {right: auto;left: 0}
+.r_content .cat {left: auto;right: 20p}
+.counter li i:after {left: -6px;right: auto;border-left: 0;border-right: 6px solid #00ABDC}
+.counter .twitter i:after {border-right-color: #00ABDC !important}
+.counter .facebook i:after {border-right-color: #325c94 !important}
+.counter .dribbble i:after {border-right-color: #fa4086 !important}
+.counter .rss i:after {border-right-color: #f5931f !important}
+.post_day .relative .cat {right: auto;left: -1px}
+.post_day .relative .cat:after {right: auto;left: -5px;border-left: 0;border-right: 5px solid #1D1E20}
+#newsletters button {right: auto;left: 14px}
+#footer .social a {float: right}
+#toTop {float: left}
+.accordion-head, .toggle-head {padding: 10px 10px 10px 60px}
+a.notification-close {left: 20px;right: auto}
+.notification-box p i {padding-left: 10px;border-left: 1px solid;margin-left: 10px;padding-right: 0;border-right: 0;margin-right: 0}
+.blockquote {border-right: 5px solid #E6E6E6;border-left: 0}
+.share_post .socials {float: right;padding: 2px 20px 0 0}
+.author_post .author_co img {float: right;margin: 0 0 20px 20px}
+.copyright {float: right}
+.right_icons {left: 0;right: auto}
+li li a .sf-sub-indicator {right: auto;left: 7%;-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-o-transform: rotate(180deg);}
+.sf-menu li li {border-right: 0;border-left: 0;}

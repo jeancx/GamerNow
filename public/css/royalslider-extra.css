@@ -1,0 +1,203 @@
+#full-width-slider {
+  max-width: 1600px;
+  color: #000;
+  left: -1px;
+  margin: 0 auto;
+}
+.rsContent {
+  color: #FFF;
+  font-size: 24px;
+  line-height: 32px;
+  float: left;
+  font-family: 'Philosopher', serif;
+}
+.bContainer {
+  position: relative;
+}
+.rsABlock {
+  position: relative;
+  display: block;
+  left: auto;
+  top: auto;
+}
+.blockHeadline {
+  font-size: 42px;
+  line-height: 50px;
+}
+.blockSubHeadline {
+  font-size: 32px;
+  line-height: 40px
+}
+.txtCent {
+  text-align: center; 
+  width: 100%;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px rgba(0, 0, 0, 0.35);
+}
+
+.slide1 {
+  background: #f06b50;
+}
+.slide1 .bContainer {
+  top: 36%;
+}
+.slide2 {
+    background: #ffbc11;
+    color:#000;
+}
+.slide2 .bContainer {
+  top: 24px;
+}
+.slide2 .txtCent {
+  line-height: 44px;
+}
+.slide2 .blockHeadline {
+   line-height: 66px;
+}
+.slide3 {
+    background: #45aab8;
+    color:#FFF;
+}
+.slide3 .bContainer {
+   top: 24px;
+}
+.slide3 span {
+  line-height: 44px;
+}
+.slide4 .bContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  bottom: 30%;
+}
+.fullWidth {
+  max-width: 1600px;
+  margin: 0 auto 24px;
+}
+
+.heroSlider:before, .heroSlider:after {
+	content: " ";
+	width: 100px;
+	height: 100%;
+	display: block;
+	top: 0;
+	position: absolute;
+	background-size: 100%;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+	}
+	.heroSlider:after {
+	left: auto;
+	right: -1px;
+	opacity: 0;
+	background-image: url(../images/fade-right.png);
+	}
+	.heroSlider:before {
+	right: auto;
+	left: -1px;
+	opacity: 0;
+	background-image: url(../images/fade-left.png);
+	z-index:1;
+	}
+	
+@media only screen and (min-width: 1460px) {
+.heroSlider:before, .heroSlider:after {
+	opacity: 1
+}
+  .heroSlider .rsOverflow,
+  .royalSlider.heroSlider {
+      height: 440px !important;
+  }
+    .rsContent {
+    font-size: 24px;
+  	line-height: 32px;
+  }
+  .blockHeadline {
+    font-size: 42px;
+  	line-height: 50px;
+  }
+  .blockSubHeadline {
+    font-size: 32px;
+  	line-height: 40px
+  }
+}
+
+@media screen and (max-width:1460px){
+  .heroSlider .rsOverflow,
+  .royalSlider.heroSlider {
+      height: 440px !important;
+  }
+    .rsContent {
+    font-size: 24px;
+  	line-height: 32px;
+  }
+  .blockHeadline {
+    font-size: 42px;
+  	line-height: 50px;
+  }
+  .blockSubHeadline {
+    font-size: 32px;
+  	line-height: 40px
+  }
+}
+
+@media screen and (max-width:1360px){
+  .heroSlider .rsOverflow,
+  .royalSlider.heroSlider {
+      height: 440px !important;
+  }
+    .rsContent {
+    font-size: 24px;
+  	line-height: 32px;
+  }
+  .blockHeadline {
+    font-size: 42px;
+  	line-height: 50px;
+  }
+  .blockSubHeadline {
+    font-size: 32px;
+  	line-height: 40px
+  }
+}
+
+@media screen and (min-width:800px) and (max-width:1000px) {
+    .heroSlider .rsOverflow,
+    .royalSlider.heroSlider {
+        height: 320px !important;
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  .royalSlider.heroSlider,
+  .royalSlider.heroSlider .rsOverflow {
+    height: 300px !important;
+  }
+  .info {
+    padding: 10px;
+    height: auto;
+    max-height: 100%;
+    min-width: 40%;
+    left: 5px;
+    top: 5px;
+    right: auto;
+    font-size: 12px;
+  }
+  .info h3 {
+     font-size: 14px;
+     line-height: 17px;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 500px) { 
+  .rsContent {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .blockHeadline {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .blockSubHeadline {
+    font-size: 22px;
+    line-height: 32px
+  }
+}

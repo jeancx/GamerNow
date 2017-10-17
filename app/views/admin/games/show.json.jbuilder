@@ -1,0 +1,1 @@
+json.extract! @game, :title, :content, :cover, :background, :date, :mature, :status, :created_at, :updated_at

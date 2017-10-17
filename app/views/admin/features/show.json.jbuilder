@@ -1,0 +1,1 @@
+json.extract! @feature, :image_a, :image_b, :post_id, :published, :created_at, :updated_at

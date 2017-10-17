@@ -1,0 +1,78 @@
+<%= form_for([:admin, @feature], html: {class: 'form-horizontal feature'}) do |f| %>
+    <% if @feature.errors.any? %>
+        <div id="error_explanation" class="panel panel-danger">
+          <div class="panel-heading">
+            <h2 class="panel-title"><%= pluralize(@feature.errors.count, "error") %> prohibited this feature from being
+              saved:</h2>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @feature.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+
+    <% if !@feature.new_record? %>
+        <div class="form-group">
+          <label class="control-label col-md-2">Image A 600x500:</label>
+
+          <div class="col-md-10">
+            <img src="<%= @feature.image_a %>" class="img-responsive" id="showIMG">
+          </div>
+        </div>
+        </dl>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :image_a, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.file_field :image_a, class: 'form-control' %>
+        Tamanho: 600px x 500px
+      </div>
+
+    </div>
+
+    <% if !@feature.new_record? %>
+        <div class="form-group">
+          <label class="control-label col-md-2">Image B 450x188:</label>
+          <div class="col-md-10">
+            <img src="<%= @feature.image_b %>" class="img-responsive" id="showIMG">
+          </div>
+        </div>
+        </dl>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :image_b, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.file_field :image_b, class: 'form-control' %>
+        Tamanho: 450px x 188px
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :post_id, class: 'control-label col-md-2' %>
+      <div class="col-md-10">
+        <%= f.text_field :post_id, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.label :published, for: nil do %>
+            <%= f.check_box :published %>
+            <%= Feature.human_attribute_name(:published) %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>

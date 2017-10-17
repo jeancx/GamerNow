@@ -1,0 +1,16 @@
+<%# encoding: utf-8 %>
+<div class="grid_full">
+
+  <h1>Todos as Plataformas</h1>
+
+  <ul id="posts">
+    <% @platforms.each do |platform| %>
+        <li>
+          <%= link_to platform.title, platform_path(platform) %>
+        </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Create a New Platform", new_platform_path, class: "new_platform" %>
+
+</div>

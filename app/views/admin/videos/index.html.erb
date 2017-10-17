@@ -1,0 +1,35 @@
+<div class="panel-heading">
+  <h4>Listando Videos<%= link_to '', new_admin_video_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Titulo</th>
+      <th>Vid</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @videos.each do |video| %>
+        <tr>
+          <td><%= video.provider %></td>
+          <td><%= video.title %></td>
+          <td><%= video.vid %></td>
+          <td><%= link_to '', [:admin, video], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_video_path(video), class: 'fa fa-pencil btn btn-sm btn-warning' %></td>
+          <td><%= link_to '', [:admin, video], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @videos, renderer: BootstrapPagination::Rails %>
+</div>

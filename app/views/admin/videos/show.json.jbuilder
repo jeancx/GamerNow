@@ -1,0 +1,1 @@
+json.extract! @video, :provider, :title, :vid, :created_at, :updated_at

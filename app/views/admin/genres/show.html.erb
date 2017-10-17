@@ -1,0 +1,22 @@
+<div class="panel-heading">
+  <h4>Mostrar Game</h4>
+</div>
+
+<div class="panel-body">
+  <p id="notice"><%= notice %></p>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Title:</strong></dt>
+    <dd><%= @genre.title %></dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @genre.description %></dd>
+  </dl>
+</div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_admin_genre_path(@genre), class: 'btn btn-default' %>
+  <%= link_to 'Back', admin_genres_path, class: 'btn btn-default' %>
+</div>

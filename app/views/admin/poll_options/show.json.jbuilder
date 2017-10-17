@@ -1,0 +1,1 @@
+json.extract! @poll_option, :poll_id, :name, :created_at, :updated_at

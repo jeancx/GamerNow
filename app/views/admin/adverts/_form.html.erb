@@ -1,0 +1,34 @@
+<%= form_for([:admin, @advert], html: { class: 'form-horizontal advert' }) do |f| %>
+  <% if @advert.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@advert.errors.count, "error") %> prohibited this advert from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @advert.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

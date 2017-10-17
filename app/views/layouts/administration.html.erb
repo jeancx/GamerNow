@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>GamerNow -Administração</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/images/icon.png">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+  <%= stylesheet_link_tag "application", media: "all" %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme-cosmo.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://static.gamernow.com.br/plugins/mt-select/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://static.gamernow.com.br/plugins/bootstrap-multiselect/bootstrap-multiselect.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=EmulateIE8; IE=EDGE"/>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <%= csrf_meta_tags %>
+
+  <style>
+      body {
+          background: #000 url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/low_contrast_linen.png') repeat;
+      }
+
+      a.fa-plus {
+          margin-top: -10px;
+      }
+
+      .panel-heading h4 {
+          font-weight: 600;
+      }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <%= render partial: 'partials/menu_admin' %>
+
+  <div class="panel panel-default">
+
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+  </div>
+
+  <div class="text-center" style="color: #FFFFFF">
+    <%= render partial: 'partials/footer_b' %>
+  </div>
+
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<%= javascript_include_tag "application" %>
+
+<!-- Template -->
+<script type="text/javascript" src="http://static.gamernow.com.br/js/ipress.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/js/jquery.ticker.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/js/custom.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/plugins/bootstrap-multiselect/bootstrap-multiselect-collapsible-groups.js"></script>
+<script type="text/javascript" src="http://static.gamernow.com.br/plugins/mt-select/js/jquery-mt-select.min.js"></script>
+<script src="/plugins/tinymce/tinymce.min.js"></script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#showIMG')
+                        .attr('src', e.target.result)
+                        .width(300);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#post_image").change(function () {
+        readURL(this);
+    });
+
+    setTimeout(function () {
+        tinymce.init({
+            selector: "#editor",
+            theme: "modern",
+            language_url: '/plugins/tinymce/langs/pt_BR.js',
+            language: "pt_BR",
+            height: 300,
+            external_plugins: {
+                "uploadimage": "/plugins/tinymce/plugins/uploadimage/plugin.min.js"
+            },
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+                //"uploadimage"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | uploadimage | link image media | preview  fullpage | forecolor backcolor"
+        });
+    }, 100);
+
+    $('.form_multiselect').multiselect();
+
+    $('.dropdown').hover(
+            function () {
+                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
+            },
+            function () {
+                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
+            }
+    );
+
+    $('.dropdown-menu').hover(
+            function () {
+                $(this).stop(true, true);
+            },
+            function () {
+                $(this).stop(true, true).delay(200).fadeOut();
+            }
+    );
+
+</script>
+
+<%= @footer %>
+
+
+</body>
+</html>

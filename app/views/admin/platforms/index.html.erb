@@ -1,0 +1,40 @@
+<div class="panel-heading">
+  <h4>Listando
+    Plataformas<%= link_to '', new_admin_platform_path, class: 'btn btn-primary fa fa-plus pull-right' %></h4>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Logo</th>
+      <th>Content</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th width="50"></th>
+      <th width="50"></th>
+      <th width="50"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @platforms.each do |platform| %>
+        <tr>
+          <td><%= platform.name %></td>
+          <td><%= platform.logo %></td>
+          <td><%= platform.content %></td>
+          <td><%= platform.date %></td>
+          <td><%= platform.status %></td>
+          <td><%= link_to '', [:admin, platform], class: 'fa fa-search-plus btn btn-sm btn-default' %></td>
+          <td><%= link_to '', edit_admin_platform_path(platform), class: 'fa fa-pencil btn btn-sm btn-default' %></td>
+          <td><%= link_to '', [:admin, platform], method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash-o btn btn-sm btn-danger' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel-footer text-center">
+  <%= will_paginate @platforms, renderer: BootstrapPagination::Rails %>
+</div>
